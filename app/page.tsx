@@ -6,6 +6,13 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-cover bg-fixed flex justify-center md:py-10" style={{ backgroundImage: 'url("/fondo-madera.jpg")' }}>
       
+      {/* ESTO HACE QUE EL SCROLL SEA SUAVE */}
+      <style jsx global>{`
+        html {
+          scroll-behavior: smooth;
+        }
+      `}</style>
+
       <div className="w-full max-w-[1200px] bg-[#F9F4F0] text-[#333] shadow-2xl flex flex-col min-h-screen md:rounded-lg overflow-hidden font-serif">
         
         {/* HEADER CON LINKS CONECTADOS */}
