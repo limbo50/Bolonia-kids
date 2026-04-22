@@ -8,10 +8,14 @@ export default function Home() {
       
       <div className="w-full max-w-[1200px] bg-[#F9F4F0] text-[#333] shadow-2xl flex flex-col min-h-screen md:rounded-lg overflow-hidden font-serif">
         
-        {/* HEADER */}
+        {/* HEADER CON LINKS CONECTADOS */}
         <div id="inicio" className="flex justify-center md:justify-end gap-6 px-8 py-4 text-[10px] font-bold uppercase tracking-widest border-b md:border-none border-[#E5DED5]">
-          <span>🛒 CARRITO</span>
-          <span>👤 CUENTA</span>
+          <Link href="/carrito" className="hover:text-[#C17967] no-underline text-inherit">
+            🛒 CARRITO
+          </Link>
+          <Link href="/cuenta" className="hover:text-[#C17967] no-underline text-inherit">
+            👤 CUENTA
+          </Link>
         </div>
 
         {/* LOGO */}
@@ -23,11 +27,11 @@ export default function Home() {
 
         {/* NAVEGACIÓN */}
         <nav className="flex justify-center flex-wrap gap-x-6 gap-y-3 md:gap-10 py-5 border-y border-[#E5DED5] text-[11px] font-bold uppercase px-4 text-center">
-          <a href="#inicio" className="hover:text-[#C17967] whitespace-nowrap">Inicio</a>
-          <a href="#productos" className="hover:text-[#C17967] whitespace-nowrap">Cocinitas</a>
-          <a href="#productos" className="hover:text-[#C17967] whitespace-nowrap">Juguetes de Rol</a>
-          <a href="#sobre-nosotros" className="hover:text-[#C17967] whitespace-nowrap">Nosotros</a>
-          <a href="#contacto" className="hover:text-[#C17967] whitespace-nowrap">Contacto</a>
+          <Link href="/" className="hover:text-[#C17967] whitespace-nowrap no-underline text-inherit">Inicio</Link>
+          <a href="#productos" className="hover:text-[#C17967] whitespace-nowrap no-underline text-inherit">Cocinitas</a>
+          <a href="#productos" className="hover:text-[#C17967] whitespace-nowrap no-underline text-inherit">Juguetes de Rol</a>
+          <a href="#sobre-nosotros" className="hover:text-[#C17967] whitespace-nowrap no-underline text-inherit">Nosotros</a>
+          <a href="#contacto" className="hover:text-[#C17967] whitespace-nowrap no-underline text-inherit">Contacto</a>
         </nav>
 
         {/* BANNER */}
@@ -42,7 +46,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* PRODUCTOS: Con enlaces a las nuevas carpetas */}
+        {/* PRODUCTOS */}
         <section id="productos" className="w-full max-w-[1100px] mx-auto py-16 px-6">
           <h2 className="text-center text-lg tracking-[4px] mb-12 uppercase font-light">Productos Destacados</h2>
           
@@ -60,7 +64,6 @@ export default function Home() {
                 <h3 className="text-[12px] font-bold mb-1 h-8 flex items-center">{item.n}</h3>
                 <p className="text-[14px] text-[#C17967] font-bold mb-4">{item.p}</p>
                 
-                {/* CAMBIO CLAVE: Ahora es un Link que usa el ID del producto */}
                 <Link 
                   href={`/productos/${item.id}`} 
                   className="bg-[#527184] text-white px-8 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-[#A9B9C7] transition-colors no-underline"
@@ -69,6 +72,16 @@ export default function Home() {
                 </Link>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* SECCIÓN SOBRE NOSOTROS */}
+        <section id="sobre-nosotros" className="py-20 px-8 bg-white text-center border-t border-[#E5DED5]">
+          <div className="max-w-[700px] mx-auto">
+            <h2 className="text-2xl tracking-[5px] mb-8 uppercase font-light text-[#C17967]">Nuestra Historia</h2>
+            <p className="text-gray-600 leading-relaxed italic text-sm md:text-base">
+              "En Bolonia Kids creamos juguetes que invitan a soñar. Cada pieza es diseñada y fabricada a mano en nuestro taller de Pilar, cuidando cada detalle y utilizando materiales nobles para que duren generaciones."
+            </p>
           </div>
         </section>
 
