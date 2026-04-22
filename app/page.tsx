@@ -1,165 +1,81 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-
 export default function Home() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  const colors = {
-    bg: '#F9F4F0',
-    primary: '#C17967',
-    secondary: '#527184',
-    footer: '#A9B9C7',
-    text: '#333333'
-  };
-
   return (
-    <div style={{ 
-      backgroundImage: 'url("/fondo-madera.jpg")', 
-      backgroundSize: 'cover',
-      backgroundAttachment: 'fixed',
-      minHeight: '100vh',
-      padding: isMobile ? '10px 0' : '40px 0',
-      margin: 0,
-      display: 'flex',
-      justifyContent: 'center'
-    }}>
+    <div className="min-h-screen bg-cover bg-fixed flex justify-center md:py-10" style={{ backgroundImage: 'url("/fondo-madera.jpg")' }}>
       
-      <div style={{ 
-        backgroundColor: colors.bg, 
-        color: colors.text, 
-        fontFamily: 'serif', 
-        width: '100%',
-        maxWidth: '1200px', 
-        margin: '0 auto', 
-        boxShadow: '0 25px 60px rgba(0,0,0,0.3)', 
-        minHeight: '100vh',
-        borderRadius: isMobile ? '0' : '4px',
-        overflow: 'hidden',
-        display: 'flex',
-        flexDirection: 'column'
-      }}>
+      <div className="w-full max-w-[1200px] bg-[#F9F4F0] text-[#333] shadow-2xl flex flex-col min-h-screen md:rounded-lg overflow-hidden font-serif">
         
-        {/* HEADER */}
-        <div id="inicio" style={{ 
-          display: 'flex', 
-          justifyContent: isMobile ? 'center' : 'flex-end', 
-          gap: '20px', 
-          padding: '15px clamp(20px, 5vw, 50px)', 
-          fontSize: '0.7rem', 
-          fontWeight: 'bold', 
-          textTransform: 'uppercase'
-        }}>
+        {/* HEADER: Siempre prolijo */}
+        <div id="inicio" className="flex justify-center md:justify-end gap-6 px-8 py-4 text-[10px] font-bold uppercase tracking-widest border-b md:border-none border-[#E5DED5]">
           <span>🛒 CARRITO</span>
           <span>👤 CUENTA</span>
         </div>
 
-        {/* LOGO */}
-        <div style={{ textAlign: 'center', padding: '20px 0' }}>
-          <img src="/osito.png" alt="Logo" style={{ height: '80px', width: 'auto', marginBottom: '10px' }} />
-          <h1 style={{ fontSize: '2.5rem', fontWeight: 'normal', letterSpacing: '8px', color: colors.primary, margin: 0 }}>BOLONIA</h1>
-          <div style={{ fontSize: '0.9rem', letterSpacing: '10px', marginTop: '-5px', fontWeight: 'bold' }}>KIDS</div>
+        {/* LOGO: Osito y nombre siempre centrados uno bajo el otro */}
+        <div className="flex flex-col items-center text-center py-8">
+          <img src="/osito.png" alt="Logo" className="h-20 w-auto mb-3" />
+          <h1 className="text-4xl md:text-5xl font-normal tracking-[12px] text-[#C17967] leading-none">BOLONIA</h1>
+          <div className="text-[11px] tracking-[10px] font-bold mt-2">KIDS</div>
         </div>
 
-        {/* NAVEGACIÓN */}
-        <nav style={{ 
-          display: 'flex', 
-          justifyContent: 'center', 
-          flexWrap: 'wrap', 
-          gap: isMobile ? '15px' : '30px', 
-          padding: '20px 10px', 
-          borderTop: '1px solid #E5DED5', 
-          borderBottom: '1px solid #E5DED5',
-          fontSize: '0.75rem', 
-          fontWeight: 'bold', 
-          textTransform: 'uppercase'
-        }}>
-          <a href="#inicio" style={{ textDecoration: 'none', color: 'inherit' }}>Inicio</a>
-          <a href="#productos" style={{ textDecoration: 'none', color: 'inherit' }}>Cocinitas</a>
-          <a href="#productos" style={{ textDecoration: 'none', color: 'inherit' }}>Juguetes de Rol</a>
-          <a href="#sobre-nosotros" style={{ textDecoration: 'none', color: 'inherit' }}>Nosotros</a>
-          <a href="#contacto" style={{ textDecoration: 'none', color: 'inherit' }}>Contacto</a>
+        {/* NAVEGACIÓN: Se adapta al ancho disponible */}
+        <nav className="flex justify-center flex-wrap gap-x-6 gap-y-3 md:gap-10 py-5 border-y border-[#E5DED5] text-[11px] font-bold uppercase px-4 text-center">
+          <a href="#inicio" className="hover:text-[#C17967] whitespace-nowrap">Inicio</a>
+          <a href="#productos" className="hover:text-[#C17967] whitespace-nowrap">Cocinitas</a>
+          <a href="#productos" className="hover:text-[#C17967] whitespace-nowrap">Juguetes de Rol</a>
+          <a href="#sobre-nosotros" className="hover:text-[#C17967] whitespace-nowrap">Nosotros</a>
+          <a href="#contacto" className="hover:text-[#C17967] whitespace-nowrap">Contacto</a>
         </nav>
 
-        {/* BANNER */}
-        <section style={{ 
-          margin: '30px auto', 
-          height: isMobile ? '450px' : '550px', 
-          display: 'flex', 
-          alignItems: isMobile ? 'center' : 'center', 
-          justifyContent: isMobile ? 'center' : 'flex-end',
-          position: 'relative', 
-          width: '100%'
-        }}>
-          <img 
-            src="/banner-principal.jpg" 
-            alt="Banner"
-            style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 1 }} 
-          />
+        {/* BANNER: Caja centrada en mobile, derecha en desktop (incluso en modo desktop del celu) */}
+        <section className="relative w-full h-[400px] md:h-[550px] flex items-center justify-center md:justify-end overflow-hidden">
+          <img src="/banner-principal.jpg" alt="Banner" className="absolute inset-0 w-full h-full object-cover z-0" />
           
-          <div style={{ 
-            backgroundColor: 'rgba(255,255,255,0.95)', 
-            padding: '40px', 
-            width: isMobile ? '85%' : '380px', 
-            marginRight: isMobile ? '0' : '80px', 
-            textAlign: 'center', 
-            zIndex: 2,
-            boxShadow: '0 15px 35px rgba(0,0,0,0.1)'
-          }}>
-            <h2 style={{ fontSize: '1.5rem', fontWeight: 'normal', marginBottom: '25px' }}>DESCUBRE LA MAGIA DEL JUEGO ARTESANAL</h2>
-            <a href="#productos" style={{ 
-              display: 'block', textDecoration: 'none', 
-              backgroundColor: colors.primary, color: 'white', 
-              padding: '15px 30px', fontWeight: 'bold', fontSize: '0.8rem'
-            }}>EXPLORAR CATÁLOGO</a>
+          <div className="relative z-10 bg-white/95 p-8 md:p-12 w-[85%] max-w-[400px] md:mr-20 text-center shadow-lg">
+            <h2 className="text-xl md:text-2xl font-normal mb-6 leading-tight">DESCUBRE LA MAGIA DEL JUEGO ARTESANAL</h2>
+            <a href="#productos" className="block bg-[#C17967] text-white py-4 font-bold text-[10px] tracking-widest no-underline">
+              EXPLORAR CATÁLOGO
+            </a>
           </div>
         </section>
 
-        {/* PRODUCTOS (HORIZONTAL EN DESKTOP) */}
-        <section id="productos" style={{ maxWidth: '1100px', margin: '60px auto', padding: '0 20px' }}>
-          <h2 style={{ textAlign: 'center', fontSize: '1.4rem', marginBottom: '40px', letterSpacing: '2px' }}>PRODUCTOS DESTACADOS</h2>
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
-            gap: '30px' 
-          }}>
+        {/* PRODUCTOS: Grid fluido. En Desktop se ve en 4 columnas horizontales */}
+        <section id="productos" className="w-full max-w-[1100px] mx-auto py-16 px-6">
+          <h2 className="text-center text-lg tracking-[4px] mb-12 uppercase font-light">Productos Destacados</h2>
+          
+          {/* El 'grid-cols-2' asegura que incluso en pantallas chicas se vea algo horizontal, 
+              y 'lg:grid-cols-4' lo pone en 4 columnas para desktop */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6">
             {[
-              { n: "COCINITA CLÁSICA 'BOLONIA'", p: "AR$ 150.000", img: "/producto-cocina.jpg" },
-              { n: "SET CAFETERÍA DE MADERA", p: "AR$ 130.000", img: "/producto-set-cafeteria.jpg" },
-              { n: "SET PIZZERÍA ARTESANAL", p: "AR$ 120.000", img: "/producto-set-pizzeria.jpg" },
-              { n: "SET PATISSERIE FRANCESA", p: "AR$ 140.000", img: "/producto-set-patisserie.jpg" }
+              { n: "COCINITA CLÁSICA", p: "AR$ 150.000", img: "/producto-cocina.jpg" },
+              { n: "SET CAFETERÍA", p: "AR$ 130.000", img: "/producto-set-cafeteria.jpg" },
+              { n: "SET PIZZERÍA", p: "AR$ 120.000", img: "/producto-set-pizzeria.jpg" },
+              { n: "SET PATISSERIE", p: "AR$ 140.000", img: "/producto-set-patisserie.jpg" }
             ].map((item, i) => (
-              <div key={i} style={{ textAlign: 'center' }}>
-                <div style={{ 
-                  backgroundColor: '#FFF', height: '280px', borderRadius: '15px', 
-                  marginBottom: '20px', overflow: 'hidden', border: '1px solid #EEE'
-                }}>
-                  <img src={item.img} alt={item.n} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <div key={i} className="flex flex-col items-center text-center group">
+                <div className="bg-white w-full aspect-square md:h-[280px] rounded-xl mb-4 overflow-hidden border border-gray-100 shadow-sm">
+                  <img src={item.img} alt={item.n} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                 </div>
-                <h3 style={{ fontSize: '0.8rem', fontWeight: 'bold' }}>{item.n}</h3>
-                <p style={{ fontSize: '0.9rem', color: colors.primary, fontWeight: 'bold' }}>{item.p}</p>
-                <button style={{ backgroundColor: colors.secondary, color: 'white', border: 'none', padding: '10px 20px', borderRadius: '25px', fontSize: '0.7rem', marginTop: '10px' }}>AGREGAR</button>
+                <h3 className="text-[12px] font-bold mb-1 h-8 flex items-center">{item.n}</h3>
+                <p className="text-[14px] text-[#C17967] font-bold mb-4">{item.p}</p>
+                <button className="bg-[#527184] text-white px-8 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-[#A9B9C7] transition-colors">
+                  Agregar
+                </button>
               </div>
             ))}
           </div>
         </section>
 
         {/* FOOTER */}
-        <footer id="contacto" style={{ backgroundColor: colors.footer, color: 'white', padding: '40px 20px', marginTop: 'auto' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', gap: '30px', fontSize: '0.8rem', textAlign: 'center' }}>
+        <footer id="contacto" className="bg-[#A9B9C7] text-white py-12 px-6 mt-auto">
+          <div className="max-w-[800px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 text-center text-[11px] tracking-[2px]">
             <div>
-              <h4 style={{ borderBottom: '1px solid white' }}>CONTACTO</h4>
+              <h4 className="border-b border-white/30 pb-2 mb-4 font-bold">INFO</h4>
               <p>Pilar, Buenos Aires</p>
             </div>
             <div>
-              <h4 style={{ borderBottom: '1px solid white' }}>EMAIL</h4>
+              <h4 className="border-b border-white/30 pb-2 mb-4 font-bold">CONTACTO</h4>
               <p>hola@boloniakids.com</p>
             </div>
           </div>
