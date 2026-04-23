@@ -47,7 +47,6 @@ export default function Home() {
           
           <div className="relative z-10 bg-white/95 p-8 md:p-12 w-[85%] max-w-[400px] md:mr-20 text-center shadow-lg">
             <h2 className="text-xl md:text-2xl font-normal mb-6 leading-tight">DESCUBRE LA MAGIA DEL JUEGO ARTESANAL</h2>
-            {/* AQUÍ CAMBIAMOS EL <a> POR UN <Link> AL CATÁLOGO */}
             <Link href="/catalogo" className="block bg-[#C17967] text-white py-4 font-bold text-[10px] tracking-widest no-underline">
               EXPLORAR CATÁLOGO
             </Link>
@@ -93,17 +92,61 @@ export default function Home() {
           </div>
         </section>
 
-        {/* FOOTER */}
-        <footer id="contacto" className="bg-[#A9B9C7] text-white py-12 px-6 mt-auto">
-          <div className="max-w-[800px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 text-center text-[11px] tracking-[2px]">
-            <div>
-              <h4 className="border-b border-white/30 pb-2 mb-4 font-bold">INFO</h4>
-              <p>Pilar, Buenos Aires</p>
+        {/* FOOTER RENOVADO */}
+        <footer id="contacto" className="bg-[#527184] text-white pt-16 pb-8 px-6 mt-auto">
+          <div className="max-w-[1100px] mx-auto">
+            
+            {/* BLOQUE SUPERIOR: DIFERENCIALES */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16 text-center border-b border-white/10 pb-16">
+              <div>
+                <span className="text-2xl mb-4 block">🌲</span>
+                <h4 className="text-[10px] font-bold tracking-[3px] uppercase mb-2">Madera Sustentable</h4>
+                <p className="text-[11px] text-white/60 leading-relaxed">Pino seleccionado y curado para máxima durabilidad.</p>
+              </div>
+              <div>
+                <span className="text-2xl mb-4 block">🎨</span>
+                <h4 className="text-[10px] font-bold tracking-[3px] uppercase mb-2">Pinturas al Agua</h4>
+                <p className="text-[11px] text-white/60 leading-relaxed">Tintas no tóxicas, seguras para los más chiquitos.</p>
+              </div>
+              <div>
+                <span className="text-2xl mb-4 block">🇦🇷</span>
+                <h4 className="text-[10px] font-bold tracking-[3px] uppercase mb-2">Industria Local</h4>
+                <p className="text-[11px] text-white/60 leading-relaxed">Diseñado y fabricado artesanalmente en Pilar.</p>
+              </div>
             </div>
-            <div>
-              <h4 className="border-b border-white/30 pb-2 mb-4 font-bold">CONTACTO</h4>
-              <p>hola@boloniakids.com</p>
+
+            {/* BLOQUE MEDIO: INFO Y REDES */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left mb-12">
+              <div>
+                <h4 className="text-[12px] font-bold tracking-[4px] uppercase mb-6">Bolonia Kids</h4>
+                <p className="text-[11px] text-white/70 leading-loose uppercase tracking-[1px]">
+                  Creamos mundos de madera para fomentar la imaginación y el juego libre desde nuestro taller en Buenos Aires.
+                </p>
+              </div>
+              
+              <div className="flex flex-col items-center">
+                <h4 className="text-[12px] font-bold tracking-[4px] uppercase mb-6">Seguinos</h4>
+                <div className="flex gap-6 text-xl">
+                  <a href="#" className="hover:text-[#F9F4F0] transition-colors no-underline">📸</a>
+                  <a href="#" className="hover:text-[#F9F4F0] transition-colors no-underline">💬</a>
+                </div>
+              </div>
+
+              <div className="md:text-right text-[11px] space-y-4">
+                <h4 className="text-[12px] font-bold tracking-[4px] uppercase mb-6">Contacto</h4>
+                <p className="tracking-widest">HOLA@BOLONIAKIDS.COM</p>
+                <p className="tracking-widest uppercase">Pilar, Buenos Aires</p>
+                <p className="text-[#A9B9C7] font-bold tracking-[1px]">SHOWROOM CON CITA PREVIA</p>
+              </div>
             </div>
+
+            {/* COPYRIGHT */}
+            <div className="text-center pt-8 border-t border-white/5">
+              <p className="text-[9px] tracking-[2px] text-white/40 uppercase">
+                © {new Date().getFullYear()} Bolonia Kids. Todos los derechos reservados.
+              </p>
+            </div>
+
           </div>
         </footer>
       </div>
