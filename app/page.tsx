@@ -41,15 +41,16 @@ export default function Home() {
           <a href="#contacto" className="hover:text-[#C17967] whitespace-nowrap no-underline text-inherit">Contacto</a>
         </nav>
 
-        {/* BANNER */}
+        {/* BANNER CONECTADO AL CATÁLOGO */}
         <section className="relative w-full h-[400px] md:h-[550px] flex items-center justify-center md:justify-end overflow-hidden">
           <img src="/banner-principal.jpg" alt="Banner" className="absolute inset-0 w-full h-full object-cover z-0" />
           
           <div className="relative z-10 bg-white/95 p-8 md:p-12 w-[85%] max-w-[400px] md:mr-20 text-center shadow-lg">
             <h2 className="text-xl md:text-2xl font-normal mb-6 leading-tight">DESCUBRE LA MAGIA DEL JUEGO ARTESANAL</h2>
-            <a href="#productos" className="block bg-[#C17967] text-white py-4 font-bold text-[10px] tracking-widest no-underline">
+            {/* AQUÍ CAMBIAMOS EL <a> POR UN <Link> AL CATÁLOGO */}
+            <Link href="/catalogo" className="block bg-[#C17967] text-white py-4 font-bold text-[10px] tracking-widest no-underline">
               EXPLORAR CATÁLOGO
-            </a>
+            </Link>
           </div>
         </section>
 
