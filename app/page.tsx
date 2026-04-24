@@ -51,7 +51,7 @@ export default function Home() {
 
       {/* BOTÓN FLOTANTE DE WHATSAPP */}
       <a 
-        href="https://wa.me/5491112345678" // REEMPLAZÁ CON TU NÚMERO REAL
+        href="https://wa.me/5491112345678" 
         target="_blank" 
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center"
@@ -84,8 +84,8 @@ export default function Home() {
         <nav className="flex justify-center flex-wrap gap-x-6 gap-y-3 md:gap-10 py-5 border-y border-[#E5DED5] text-[11px] font-bold uppercase px-4 text-center">
           <Link href="/" className="hover:text-[#C17967] no-underline text-inherit">Inicio</Link>
           <Link href="#novedades" className="hover:text-[#C17967] no-underline text-inherit">Novedades</Link>
-          <Link href="#nosotros" className="hover:text-[#C17967] no-underline text-inherit">Nosotros</Link>
           <Link href="#productos" className="hover:text-[#C17967] no-underline text-inherit">Productos</Link>
+          <Link href="#nosotros" className="hover:text-[#C17967] no-underline text-inherit">Nosotros</Link>
           <Link href="#contacto" className="hover:text-[#C17967] no-underline text-inherit">Contacto</Link>
         </nav>
 
@@ -124,24 +124,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* NOSOTROS */}
-        <section id="nosotros" className="py-20 px-6 bg-white">
-          <div className="max-w-[800px] mx-auto text-center">
-            <h2 className="text-[12px] tracking-[6px] font-bold uppercase mb-8 text-[#C17967]">Nuestra Esencia</h2>
-            <p className="text-lg md:text-xl leading-relaxed text-gray-700 italic font-light">
-              "En nuestro taller de Pilar, cada juguete nace de la convicción de que el juego es el lenguaje más puro de la infancia. 
-              Diseñamos piezas duraderas, libres de plásticos y llenas de imaginación, pensadas para pasar de generación en generación."
-            </p>
-            <div className="mt-10 flex justify-center gap-4">
-              <div className="h-[1px] w-12 bg-[#C17967] self-center"></div>
-              <span className="text-[10px] font-bold tracking-[4px] uppercase">Hecho a mano con amor</span>
-              <div className="h-[1px] w-12 bg-[#C17967] self-center"></div>
-            </div>
-          </div>
-        </section>
-
         {/* RECOMENDADOS */}
-        <section id="recomendados" className="py-20 px-6 bg-[#F9F4F0]">
+        <section id="recomendados" className="py-20 px-6 bg-white">
           <div className="max-w-[1000px] mx-auto">
             <h2 className="text-center text-xl tracking-[4px] uppercase font-light mb-12 flex items-center justify-center gap-4">
                <Star size={18} fill="#C17967" color="#C17967" /> Favoritos de la Casa
@@ -151,9 +135,11 @@ export default function Home() {
                 <div key={item.id} className="group relative">
                   <div className="overflow-hidden rounded-2xl mb-6 aspect-[4/5] bg-[#F9F4F0] relative">
                     <img src={item.img} alt={item.n} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                    
+                    {/* CORAZÓN RESPONSIVO (Favoritos) */}
                     <button 
                       onClick={() => toggleFavorito(item.id)}
-                      className="absolute top-6 right-6 p-3 bg-white/90 rounded-full shadow-lg transition-transform active:scale-90"
+                      className="absolute top-6 right-6 p-3 bg-white/90 rounded-full shadow-lg transition-all duration-300 opacity-100 md:opacity-0 md:group-hover:opacity-100 transform md:translate-y-2 md:group-hover:translate-y-0 active:scale-90"
                     >
                       <Heart 
                         size={20} 
@@ -161,6 +147,7 @@ export default function Home() {
                         color={favoritos.includes(item.id) ? "#C17967" : "#333"} 
                       />
                     </button>
+
                   </div>
                   <h3 className="text-lg font-bold tracking-widest mb-2 uppercase">{item.n}</h3>
                   <p className="text-gray-500 text-sm italic mb-4 leading-relaxed">{item.desc}</p>
@@ -182,9 +169,11 @@ export default function Home() {
               <div key={item.id} className="flex flex-col items-center text-center group">
                 <div className="bg-white w-full aspect-square rounded-xl mb-4 overflow-hidden border border-gray-100 shadow-sm relative">
                   <img src={item.img} alt={item.n} className="w-full h-full object-cover group-hover:opacity-80 transition-opacity" />
+                  
+                  {/* CORAZÓN RESPONSIVO (Grilla) */}
                   <button 
                     onClick={() => toggleFavorito(item.id)}
-                    className="absolute top-3 right-3 p-2 bg-white/90 rounded-full shadow-sm"
+                    className="absolute top-3 right-3 p-2 bg-white/90 rounded-full shadow-sm opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300"
                   >
                     <Heart 
                       size={14} 
@@ -192,6 +181,7 @@ export default function Home() {
                       color={favoritos.includes(item.id) ? "#C17967" : "#333"} 
                     />
                   </button>
+
                 </div>
                 <h3 className="text-[11px] font-bold mb-1 tracking-wider uppercase h-8 flex items-center">{item.n}</h3>
                 <p className="text-[13px] text-[#C17967] font-bold mb-4">{item.p}</p>
@@ -200,6 +190,22 @@ export default function Home() {
                 </Link>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* NOSOTROS */}
+        <section id="nosotros" className="py-24 px-6 bg-[#E5DED5]/20 border-t border-[#E5DED5]">
+          <div className="max-w-[800px] mx-auto text-center">
+            <h2 className="text-[12px] tracking-[6px] font-bold uppercase mb-8 text-[#C17967]">Nuestra Esencia</h2>
+            <p className="text-lg md:text-xl leading-relaxed text-gray-700 italic font-light">
+              "En nuestro taller de Pilar, cada juguete nace de la convicción de que el juego es el lenguaje más puro de la infancia. 
+              Diseñamos piezas duraderas, libres de plásticos y llenas de imaginación, pensadas para pasar de generación en generación."
+            </p>
+            <div className="mt-10 flex justify-center gap-4">
+              <div className="h-[1px] w-12 bg-[#C17967] self-center"></div>
+              <span className="text-[10px] font-bold tracking-[4px] uppercase">Hecho a mano con amor</span>
+              <div className="h-[1px] w-12 bg-[#C17967] self-center"></div>
+            </div>
           </div>
         </section>
 
