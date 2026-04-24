@@ -63,9 +63,9 @@ export default function Home() {
           </Link>
         </div>
 
-        {/* LOGO - Corregido a Osito.png con mayúscula según tu carpeta */}
+        {/* LOGO - Corregido a osito.png con mayúscula según tu carpeta */}
         <div className="flex flex-col items-center text-center py-8">
-          <img src="/Osito.png" alt="Logo" className="h-20 w-auto mb-3" />
+          <img src="/osito.png" alt="Logo" className="h-20 w-auto mb-3" />
           <h1 className="text-4xl md:text-5xl font-normal tracking-[12px] text-[#C17967] leading-none">BOLONIA</h1>
           <div className="text-[11px] tracking-[10px] font-bold mt-2">KIDS</div>
         </div>
