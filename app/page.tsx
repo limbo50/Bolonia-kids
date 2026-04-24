@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react'; // IMPORTANTE PARA LOS FAVORITOS
+import { useState } from 'react'; 
 import Link from 'next/link';
 import { 
   ShoppingCart, 
@@ -12,11 +12,10 @@ import {
   MapPin, 
   Heart,
   Star,
-  Sparkles // Icono para "Nuevo"
+  Sparkles 
 } from 'lucide-react';
 
 export default function Home() {
-  // ESTADO PARA MANEJAR FAVORITOS (Lista de IDs)
   const [favoritos, setFavoritos] = useState<string[]>([]);
 
   const toggleFavorito = (id: string) => {
@@ -61,23 +60,23 @@ export default function Home() {
           </Link>
           <Link href="/cuenta" className="flex items-center gap-2 hover:text-[#C17967] no-underline text-inherit transition-colors">
             <User size={14} strokeWidth={2.5} />
-            CUENTA ({favoritos.length}) {/* MUESTRA CUANTOS FAVS HAY */}
+            CUENTA ({favoritos.length})
           </Link>
         </div>
 
-        {/* LOGO */}
+        {/* LOGO - Corregido a Osito.png con mayúscula según tu carpeta */}
         <div className="flex flex-col items-center text-center py-8">
-          <img src="/osito.png" alt="Logo" className="h-20 w-auto mb-3" />
+          <img src="/Osito.png" alt="Logo" className="h-20 w-auto mb-3" />
           <h1 className="text-4xl md:text-5xl font-normal tracking-[12px] text-[#C17967] leading-none">BOLONIA</h1>
           <div className="text-[11px] tracking-[10px] font-bold mt-2">KIDS</div>
         </div>
 
-        {/* NAVEGACIÓN */}
+        {/* NAVEGACIÓN - Cambiado a Link para mejor performance en Vercel */}
         <nav className="flex justify-center flex-wrap gap-x-6 gap-y-3 md:gap-10 py-5 border-y border-[#E5DED5] text-[11px] font-bold uppercase px-4 text-center">
           <Link href="/" className="hover:text-[#C17967] no-underline text-inherit">Inicio</Link>
-          <a href="#novedades" className="hover:text-[#C17967] no-underline text-inherit">Novedades</a>
-          <a href="#productos" className="hover:text-[#C17967] no-underline text-inherit">Productos</a>
-          <a href="#contacto" className="hover:text-[#C17967] no-underline text-inherit">Contacto</a>
+          <Link href="#novedades" className="hover:text-[#C17967] no-underline text-inherit">Novedades</Link>
+          <Link href="#productos" className="hover:text-[#C17967] no-underline text-inherit">Productos</Link>
+          <Link href="#contacto" className="hover:text-[#C17967] no-underline text-inherit">Contacto</Link>
         </nav>
 
         {/* BANNER */}
@@ -91,7 +90,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* NUEVA SECCIÓN: NOVEDADES (DISEÑO HORIZONTAL) */}
+        {/* NOVEDADES */}
         <section id="novedades" className="py-16 px-6 bg-[#E5DED5]/30">
           <div className="max-w-[1100px] mx-auto">
             <h2 className="text-[12px] tracking-[6px] font-bold uppercase mb-10 text-center flex items-center justify-center gap-3">
@@ -126,8 +125,6 @@ export default function Home() {
                 <div key={item.id} className="group relative">
                   <div className="overflow-hidden rounded-2xl mb-6 aspect-[4/5] bg-[#F9F4F0] relative">
                     <img src={item.img} alt={item.n} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                    
-                    {/* BOTÓN CORAZÓN (LÓGICA DE FAV) */}
                     <button 
                       onClick={() => toggleFavorito(item.id)}
                       className="absolute top-6 right-6 p-3 bg-white/90 rounded-full shadow-lg transition-transform active:scale-90"
@@ -151,7 +148,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* GRILLA GENERAL */}
+        {/* GRILLA PRODUCTOS */}
         <section id="productos" className="w-full max-w-[1100px] mx-auto py-20 px-6 border-t border-[#E5DED5]">
           <h2 className="text-center text-lg tracking-[4px] mb-16 uppercase font-light">Explora la Colección</h2>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12">
@@ -180,8 +177,17 @@ export default function Home() {
           </div>
         </section>
 
-        {/* FOOTER (Omitido por brevedad, mantené el anterior) */}
-        {/* ... */}
+        {/* CONTACTO / FOOTER */}
+        <footer id="contacto" className="bg-[#527184] text-white pt-16 pb-8 px-6 mt-auto">
+          <div className="max-w-[1100px] mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16 text-center border-b border-white/10 pb-16">
+              <div className="flex flex-col items-center"><Trees size={32} strokeWidth={1.5} className="mb-4 text-[#A9B9C7]" /><h4 className="text-[10px] font-bold uppercase tracking-[3px] mb-2">Madera Sustentable</h4><p className="text-[11px] text-white/60">Pino seleccionado.</p></div>
+              <div className="flex flex-col items-center"><Palette size={32} strokeWidth={1.5} className="mb-4 text-[#A9B9C7]" /><h4 className="text-[10px] font-bold uppercase tracking-[3px] mb-2">Pinturas al Agua</h4><p className="text-[11px] text-white/60">No tóxicas.</p></div>
+              <div className="flex flex-col items-center"><MapPin size={32} strokeWidth={1.5} className="mb-4 text-[#A9B9C7]" /><h4 className="text-[10px] font-bold uppercase tracking-[3px] mb-2">Industria Local</h4><p className="text-[11px] text-white/60">Pilar, Buenos Aires.</p></div>
+            </div>
+            <div className="text-center pt-8 border-t border-white/5"><p className="text-[9px] tracking-[2px] text-white/40">© {new Date().getFullYear()} Bolonia Kids.</p></div>
+          </div>
+        </footer>
       </div>
     </div>
   );
