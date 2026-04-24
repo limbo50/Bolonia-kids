@@ -12,7 +12,7 @@ import {
   Heart,
   Star,
   Sparkles 
-} from 'lucide-react'; // CORREGIDO: De 'lucide-center' a 'lucide-react'
+} from 'lucide-react';
 
 export default function Home() {
   const [favoritos, setFavoritos] = useState<string[]>([]);
@@ -80,15 +80,22 @@ export default function Home() {
           <div className="text-[11px] tracking-[10px] font-bold mt-2">KIDS</div>
         </div>
 
-        {/* NAVEGACIÓN */}
+        {/* NAVEGACIÓN REORGANIZADA */}
         <nav className="flex justify-center items-center flex-wrap gap-x-6 gap-y-3 md:gap-10 py-5 border-y border-[#E5DED5] text-[11px] font-bold uppercase px-4 text-center">
           <Link href="/" className="hover:text-[#C17967] no-underline text-inherit">Inicio</Link>
+          <Link href="#novedades" className="hover:text-[#C17967] no-underline text-inherit">Novedades</Link>
+          <Link href="#productos" className="hover:text-[#C17967] no-underline text-inherit">Productos</Link>
+          
+          {/* A Medida entre Productos y Nosotros */}
           <Link href="/a-medida" className="bg-white border border-[#C17967] text-[#C17967] px-4 py-1.5 rounded-full hover:bg-[#C17967] hover:text-white transition-all no-underline">
             A Medida
           </Link>
-          <Link href="#novedades" className="hover:text-[#C17967] no-underline text-inherit">Novedades</Link>
-          <Link href="#productos" className="hover:text-[#C17967] no-underline text-inherit">Productos</Link>
+
           <Link href="#nosotros" className="hover:text-[#C17967] no-underline text-inherit">Nosotros</Link>
+          
+          {/* Preguntas antes de Contacto */}
+          <Link href="#preguntas" className="hover:text-[#C17967] no-underline text-inherit">Preguntas</Link>
+          
           <Link href="#contacto" className="hover:text-[#C17967] no-underline text-inherit">Contacto</Link>
         </nav>
 
@@ -203,7 +210,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* SECCIÓN: CÓMO TRABAJAMOS (Nueva Sección) */}
+        {/* SECCIÓN: CÓMO TRABAJAMOS */}
         <section className="py-20 px-6 bg-[#FDFCFB] border-t border-[#E5DED5]">
           <div className="max-w-[1100px] mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-normal mb-4 uppercase tracking-tighter text-[#333]">Cómo trabajamos</h2>
@@ -240,8 +247,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* SECCIÓN: PREGUNTAS FRECUENTES (FAQ al final) */}
-        <section className="py-20 px-6 bg-white border-t border-[#E5DED5]">
+        {/* SECCIÓN: PREGUNTAS FRECUENTES (Ahora con ID para el Link) */}
+        <section id="preguntas" className="py-20 px-6 bg-white border-t border-[#E5DED5]">
           <div className="max-w-[800px] mx-auto">
             <h2 className="text-3xl md:text-4xl font-normal mb-12 uppercase tracking-tighter text-center">Preguntas frecuentes</h2>
             <div className="space-y-10">
