@@ -12,7 +12,7 @@ import {
   Heart,
   Star,
   Sparkles 
-} from 'lucide-center'; // Nota: Asegurate que sea 'lucide-react' en tu VS Code
+} from 'lucide-react'; // CORREGIDO: De 'lucide-center' a 'lucide-react'
 
 export default function Home() {
   const [favoritos, setFavoritos] = useState<string[]>([]);
@@ -83,11 +83,9 @@ export default function Home() {
         {/* NAVEGACIÓN */}
         <nav className="flex justify-center items-center flex-wrap gap-x-6 gap-y-3 md:gap-10 py-5 border-y border-[#E5DED5] text-[11px] font-bold uppercase px-4 text-center">
           <Link href="/" className="hover:text-[#C17967] no-underline text-inherit">Inicio</Link>
-          
           <Link href="/a-medida" className="bg-white border border-[#C17967] text-[#C17967] px-4 py-1.5 rounded-full hover:bg-[#C17967] hover:text-white transition-all no-underline">
             A Medida
           </Link>
-
           <Link href="#novedades" className="hover:text-[#C17967] no-underline text-inherit">Novedades</Link>
           <Link href="#productos" className="hover:text-[#C17967] no-underline text-inherit">Productos</Link>
           <Link href="#nosotros" className="hover:text-[#C17967] no-underline text-inherit">Nosotros</Link>
@@ -140,18 +138,12 @@ export default function Home() {
                 <div key={item.id} className="group relative">
                   <div className="overflow-hidden rounded-2xl mb-6 aspect-[4/5] bg-[#F9F4F0] relative">
                     <img src={item.img} alt={item.n} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                    
                     <button 
                       onClick={() => toggleFavorito(item.id)}
                       className="absolute top-6 right-6 p-3 bg-white/90 rounded-full shadow-lg transition-all duration-300 opacity-100 md:opacity-0 md:group-hover:opacity-100 transform md:translate-y-2 md:group-hover:translate-y-0 active:scale-90"
                     >
-                      <Heart 
-                        size={20} 
-                        fill={favoritos.includes(item.id) ? "#C17967" : "none"} 
-                        color={favoritos.includes(item.id) ? "#C17967" : "#333"} 
-                      />
+                      <Heart size={20} fill={favoritos.includes(item.id) ? "#C17967" : "none"} color={favoritos.includes(item.id) ? "#C17967" : "#333"} />
                     </button>
-
                   </div>
                   <h3 className="text-lg font-bold tracking-widest mb-2 uppercase">{item.n}</h3>
                   <p className="text-gray-500 text-sm italic mb-4 leading-relaxed">{item.desc}</p>
@@ -173,18 +165,12 @@ export default function Home() {
               <div key={item.id} className="flex flex-col items-center text-center group">
                 <div className="bg-white w-full aspect-square rounded-xl mb-4 overflow-hidden border border-gray-100 shadow-sm relative">
                   <img src={item.img} alt={item.n} className="w-full h-full object-cover group-hover:opacity-80 transition-opacity" />
-                  
                   <button 
                     onClick={() => toggleFavorito(item.id)}
                     className="absolute top-3 right-3 p-2 bg-white/90 rounded-full shadow-sm opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300"
                   >
-                    <Heart 
-                      size={14} 
-                      fill={favoritos.includes(item.id) ? "#C17967" : "none"} 
-                      color={favoritos.includes(item.id) ? "#C17967" : "#333"} 
-                    />
+                    <Heart size={14} fill={favoritos.includes(item.id) ? "#C17967" : "none"} color={favoritos.includes(item.id) ? "#C17967" : "#333"} />
                   </button>
-
                 </div>
                 <h3 className="text-[11px] font-bold mb-1 tracking-wider uppercase h-8 flex items-center">{item.n}</h3>
                 <p className="text-[13px] text-[#C17967] font-bold mb-4">{item.p}</p>
@@ -196,7 +182,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* SECCIÓN INTERMEDIA: A MEDIDA (Nueva Ubicación) */}
+        {/* SECCIÓN INTERMEDIA: A MEDIDA */}
         <section className="py-12 px-6 bg-white">
           <div className="max-w-[1100px] mx-auto">
             <div className="bg-[#F9F4F0] rounded-[40px] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-10 border border-[#E5DED5]">
@@ -207,16 +193,33 @@ export default function Home() {
                   "Desde medidas específicas hasta diseños totalmente nuevos, hacemos realidad el mueble o juguete que soñaste para tu espacio."
                 </p>
               </div>
-              
               <div className="flex flex-col items-center gap-4">
-                <Link 
-                  href="/a-medida" 
-                  className="bg-[#333] text-white px-10 py-5 rounded-full font-bold text-[11px] tracking-[3px] uppercase hover:bg-[#C17967] transition-all shadow-xl hover:scale-105 no-underline"
-                >
+                <Link href="/a-medida" className="bg-[#333] text-white px-10 py-5 rounded-full font-bold text-[11px] tracking-[3px] uppercase hover:bg-[#C17967] transition-all shadow-xl hover:scale-105 no-underline">
                   Solicitar Presupuesto
                 </Link>
                 <span className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Sin compromiso de compra</span>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SECCIÓN: CÓMO TRABAJAMOS (Nueva Sección) */}
+        <section className="py-20 px-6 bg-[#FDFCFB] border-t border-[#E5DED5]">
+          <div className="max-w-[1100px] mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-normal mb-4 uppercase tracking-tighter text-[#333]">Cómo trabajamos</h2>
+            <p className="text-gray-500 text-sm mb-16 tracking-widest uppercase font-bold">Del pedido a la entrega, en pocos pasos.</p>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+              {[
+                { n: "1", t: "Nos contás lo que necesitás" },
+                { n: "2", t: "Definimos medidas, material y herrajes" },
+                { n: "3", t: "Te enviamos presupuesto sin costo" },
+                { n: "4", t: "Fabricamos y coordinamos visita/entrega" }
+              ].map((paso) => (
+                <div key={paso.n} className="flex flex-col items-center">
+                  <div className="w-12 h-12 bg-[#C17967] text-white rounded-full flex items-center justify-center font-bold mb-6 text-lg shadow-lg">{paso.n}</div>
+                  <p className="text-[13px] font-bold uppercase tracking-widest leading-relaxed px-4">{paso.t}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -233,6 +236,26 @@ export default function Home() {
               <div className="h-[1px] w-12 bg-[#C17967] self-center"></div>
               <span className="text-[10px] font-bold tracking-[4px] uppercase">Hecho a mano con amor</span>
               <div className="h-[1px] w-12 bg-[#C17967] self-center"></div>
+            </div>
+          </div>
+        </section>
+
+        {/* SECCIÓN: PREGUNTAS FRECUENTES (FAQ al final) */}
+        <section className="py-20 px-6 bg-white border-t border-[#E5DED5]">
+          <div className="max-w-[800px] mx-auto">
+            <h2 className="text-3xl md:text-4xl font-normal mb-12 uppercase tracking-tighter text-center">Preguntas frecuentes</h2>
+            <div className="space-y-10">
+              {[
+                { q: "¿Hacen solo muebles para niños?", a: "Sí. Nos especializamos en cocinas y muebles infantiles y juveniles, siempre con medidas y terminaciones acordes." },
+                { q: "¿Qué materiales utilizan?", a: "Trabajamos con melamina MDF de calidad, enchapados y laqueados, con herrajes adecuados al uso diario." },
+                { q: "¿Las cotizaciones tienen costo?", a: "No. Son sin costo. Coordinamos visita para medir y armar el presupuesto con vos." },
+                { q: "¿Cómo pido un presupuesto?", a: "Por WhatsApp, email o el formulario de 'A medida'. Te asesoramos en cada paso." }
+              ].map((faq, index) => (
+                <div key={index}>
+                  <h4 className="text-[11px] font-bold uppercase tracking-[3px] text-[#C17967] mb-3">{faq.q}</h4>
+                  <p className="text-gray-600 text-sm leading-relaxed italic">"{faq.a}"</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
