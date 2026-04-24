@@ -4,8 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { 
   ShoppingCart, 
-  User, 
-  Instagram, 
+  User,  
   MessageCircle, 
   Trees, 
   Palette, 
