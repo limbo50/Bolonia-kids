@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { 
   ShoppingCart, 
-  User,  
+  User,   
   MessageCircle, 
   Trees, 
   Palette, 
@@ -49,6 +49,16 @@ export default function Home() {
         html { scroll-behavior: smooth; }
       `}</style>
 
+      {/* BOTÓN FLOTANTE DE WHATSAPP */}
+      <a 
+        href="https://wa.me/5491112345678" // REEMPLAZÁ CON TU NÚMERO REAL
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center"
+      >
+        <MessageCircle size={28} fill="currentColor" />
+      </a>
+
       <div className="w-full max-w-[1200px] bg-[#F9F4F0] text-[#333] shadow-2xl flex flex-col min-h-screen md:rounded-lg overflow-hidden font-serif">
         
         {/* HEADER */}
@@ -63,17 +73,18 @@ export default function Home() {
           </Link>
         </div>
 
-        {/* LOGO - Corregido a osito.png con mayúscula según tu carpeta */}
+        {/* LOGO */}
         <div className="flex flex-col items-center text-center py-8">
           <img src="/osito.png" alt="Logo" className="h-20 w-auto mb-3" />
           <h1 className="text-4xl md:text-5xl font-normal tracking-[12px] text-[#C17967] leading-none">BOLONIA</h1>
           <div className="text-[11px] tracking-[10px] font-bold mt-2">KIDS</div>
         </div>
 
-        {/* NAVEGACIÓN - Cambiado a Link para mejor performance en Vercel */}
+        {/* NAVEGACIÓN */}
         <nav className="flex justify-center flex-wrap gap-x-6 gap-y-3 md:gap-10 py-5 border-y border-[#E5DED5] text-[11px] font-bold uppercase px-4 text-center">
           <Link href="/" className="hover:text-[#C17967] no-underline text-inherit">Inicio</Link>
           <Link href="#novedades" className="hover:text-[#C17967] no-underline text-inherit">Novedades</Link>
+          <Link href="#nosotros" className="hover:text-[#C17967] no-underline text-inherit">Nosotros</Link>
           <Link href="#productos" className="hover:text-[#C17967] no-underline text-inherit">Productos</Link>
           <Link href="#contacto" className="hover:text-[#C17967] no-underline text-inherit">Contacto</Link>
         </nav>
@@ -113,8 +124,24 @@ export default function Home() {
           </div>
         </section>
 
+        {/* NOSOTROS */}
+        <section id="nosotros" className="py-20 px-6 bg-white">
+          <div className="max-w-[800px] mx-auto text-center">
+            <h2 className="text-[12px] tracking-[6px] font-bold uppercase mb-8 text-[#C17967]">Nuestra Esencia</h2>
+            <p className="text-lg md:text-xl leading-relaxed text-gray-700 italic font-light">
+              "En nuestro taller de Pilar, cada juguete nace de la convicción de que el juego es el lenguaje más puro de la infancia. 
+              Diseñamos piezas duraderas, libres de plásticos y llenas de imaginación, pensadas para pasar de generación en generación."
+            </p>
+            <div className="mt-10 flex justify-center gap-4">
+              <div className="h-[1px] w-12 bg-[#C17967] self-center"></div>
+              <span className="text-[10px] font-bold tracking-[4px] uppercase">Hecho a mano con amor</span>
+              <div className="h-[1px] w-12 bg-[#C17967] self-center"></div>
+            </div>
+          </div>
+        </section>
+
         {/* RECOMENDADOS */}
-        <section id="recomendados" className="py-20 px-6 bg-white">
+        <section id="recomendados" className="py-20 px-6 bg-[#F9F4F0]">
           <div className="max-w-[1000px] mx-auto">
             <h2 className="text-center text-xl tracking-[4px] uppercase font-light mb-12 flex items-center justify-center gap-4">
                <Star size={18} fill="#C17967" color="#C17967" /> Favoritos de la Casa
