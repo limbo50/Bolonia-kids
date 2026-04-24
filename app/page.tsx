@@ -12,7 +12,7 @@ import {
   Heart,
   Star,
   Sparkles 
-} from 'lucide-react';
+} from 'lucide-center'; // Nota: Asegurate que sea 'lucide-react' en tu VS Code
 
 export default function Home() {
   const [favoritos, setFavoritos] = useState<string[]>([]);
@@ -81,8 +81,13 @@ export default function Home() {
         </div>
 
         {/* NAVEGACIÓN */}
-        <nav className="flex justify-center flex-wrap gap-x-6 gap-y-3 md:gap-10 py-5 border-y border-[#E5DED5] text-[11px] font-bold uppercase px-4 text-center">
+        <nav className="flex justify-center items-center flex-wrap gap-x-6 gap-y-3 md:gap-10 py-5 border-y border-[#E5DED5] text-[11px] font-bold uppercase px-4 text-center">
           <Link href="/" className="hover:text-[#C17967] no-underline text-inherit">Inicio</Link>
+          
+          <Link href="/a-medida" className="bg-white border border-[#C17967] text-[#C17967] px-4 py-1.5 rounded-full hover:bg-[#C17967] hover:text-white transition-all no-underline">
+            A Medida
+          </Link>
+
           <Link href="#novedades" className="hover:text-[#C17967] no-underline text-inherit">Novedades</Link>
           <Link href="#productos" className="hover:text-[#C17967] no-underline text-inherit">Productos</Link>
           <Link href="#nosotros" className="hover:text-[#C17967] no-underline text-inherit">Nosotros</Link>
@@ -136,7 +141,6 @@ export default function Home() {
                   <div className="overflow-hidden rounded-2xl mb-6 aspect-[4/5] bg-[#F9F4F0] relative">
                     <img src={item.img} alt={item.n} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                     
-                    {/* CORAZÓN RESPONSIVO (Favoritos) */}
                     <button 
                       onClick={() => toggleFavorito(item.id)}
                       className="absolute top-6 right-6 p-3 bg-white/90 rounded-full shadow-lg transition-all duration-300 opacity-100 md:opacity-0 md:group-hover:opacity-100 transform md:translate-y-2 md:group-hover:translate-y-0 active:scale-90"
@@ -170,7 +174,6 @@ export default function Home() {
                 <div className="bg-white w-full aspect-square rounded-xl mb-4 overflow-hidden border border-gray-100 shadow-sm relative">
                   <img src={item.img} alt={item.n} className="w-full h-full object-cover group-hover:opacity-80 transition-opacity" />
                   
-                  {/* CORAZÓN RESPONSIVO (Grilla) */}
                   <button 
                     onClick={() => toggleFavorito(item.id)}
                     className="absolute top-3 right-3 p-2 bg-white/90 rounded-full shadow-sm opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300"
@@ -190,6 +193,31 @@ export default function Home() {
                 </Link>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* SECCIÓN INTERMEDIA: A MEDIDA (Nueva Ubicación) */}
+        <section className="py-12 px-6 bg-white">
+          <div className="max-w-[1100px] mx-auto">
+            <div className="bg-[#F9F4F0] rounded-[40px] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-10 border border-[#E5DED5]">
+              <div className="text-center md:text-left md:max-w-[500px]">
+                <h2 className="text-[12px] tracking-[5px] font-bold uppercase mb-4 text-[#C17967]">Personalización</h2>
+                <h3 className="text-3xl md:text-4xl font-normal mb-6 leading-tight uppercase tracking-tighter">¿Tenés una idea especial en mente?</h3>
+                <p className="text-gray-600 italic text-lg leading-relaxed">
+                  "Desde medidas específicas hasta diseños totalmente nuevos, hacemos realidad el mueble o juguete que soñaste para tu espacio."
+                </p>
+              </div>
+              
+              <div className="flex flex-col items-center gap-4">
+                <Link 
+                  href="/a-medida" 
+                  className="bg-[#333] text-white px-10 py-5 rounded-full font-bold text-[11px] tracking-[3px] uppercase hover:bg-[#C17967] transition-all shadow-xl hover:scale-105 no-underline"
+                >
+                  Solicitar Presupuesto
+                </Link>
+                <span className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Sin compromiso de compra</span>
+              </div>
+            </div>
           </div>
         </section>
 
