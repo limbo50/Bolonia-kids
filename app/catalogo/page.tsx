@@ -10,6 +10,10 @@ export default function Catalogo() {
     { id: "cafeteria", n: "SET CAFETERÍA", p: "AR$ 130.000", img: "/producto-set-cafeteria.jpg", cat: "rol" },
     { id: "pizzeria", n: "SET PIZZERÍA", p: "AR$ 120.000", img: "/producto-set-pizzeria.jpg", cat: "rol" },
     { id: "patisserie", n: "SET PATISSERIE", p: "AR$ 140.000", img: "/producto-set-patisserie.jpg", cat: "rol" },
+    { id: "bloques", n: "BLOQUES NÓRDICOS", p: "AR$ 65.000", img: "/producto-bloques.jpg", cat: "accesorios" },
+    { id: "rompecabezas", n: "PUZZLE ANIMALES", p: "AR$ 38.000", img: "/producto-puzzle.jpg", cat: "accesorios" },
+    { id: "set-limpieza", n: "SET LIMPIEZA", p: "AR$ 95.000", img: "/producto-limpieza.jpg", cat: "rol" },
+    { id: "tostadora", n: "TOSTADORA DE MADERA", p: "AR$ 45.000", img: "/producto-tostadora.jpg", cat: "rol" },
   ];
 
   const filtrados = categoria === 'todos' 
