@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ChevronLeft, LogIn, Mail } from 'lucide-react';
+import { ChevronLeft, Mail } from 'lucide-react';
 
 export default function CuentaLogin() {
   return (
@@ -21,11 +21,13 @@ export default function CuentaLogin() {
         <div className="bg-white p-10 rounded-3xl shadow-xl border border-[#E5DED5] space-y-6">
           <p className="text-[11px] font-bold uppercase tracking-[2px] text-gray-400 mb-2">Ingresá con</p>
           
-          {/* BOTÓN DE GOOGLE (Estilo Bolonia) */}
-          <button className="w-full border-2 border-[#E5DED5] py-4 rounded-full flex items-center justify-center gap-3 hover:bg-[#F9F4F0] transition-all font-bold text-[11px] tracking-[2px] uppercase">
-            <img src="https://www.google.com/favicon.ico" className="w-4 h-4" alt="Google" />
-            Continuar con Google
-          </button>
+          {/* BOTÓN DE GOOGLE (Link temporal para prueba) */}
+          <Link href="/cuenta/perfil" className="block w-full">
+            <button className="w-full border-2 border-[#E5DED5] py-4 rounded-full flex items-center justify-center gap-3 hover:bg-[#F9F4F0] transition-all font-bold text-[11px] tracking-[2px] uppercase">
+              <img src="https://www.google.com/favicon.ico" className="w-4 h-4" alt="Google" />
+              Continuar con Google
+            </button>
+          </Link>
 
           <div className="flex items-center gap-4 py-2">
             <div className="h-[1px] bg-[#E5DED5] flex-1"></div>
@@ -33,10 +35,12 @@ export default function CuentaLogin() {
             <div className="h-[1px] bg-[#E5DED5] flex-1"></div>
           </div>
 
-          {/* BOTÓN DE EMAIL */}
-          <button className="w-full bg-[#333] text-white py-4 rounded-full flex items-center justify-center gap-3 hover:bg-[#C17967] transition-all font-bold text-[11px] tracking-[2px] uppercase shadow-md">
-            <Mail size={16} /> Ingresar con Email
-          </button>
+          {/* BOTÓN DE EMAIL (Link temporal para prueba) */}
+          <Link href="/cuenta/perfil" className="block w-full">
+            <button className="w-full bg-[#333] text-white py-4 rounded-full flex items-center justify-center gap-3 hover:bg-[#C17967] transition-all font-bold text-[11px] tracking-[2px] uppercase shadow-md">
+              <Mail size={16} /> Ingresar con Email
+            </button>
+          </Link>
 
           <p className="text-[10px] text-gray-400 mt-6 leading-relaxed">
             Al ingresar, aceptás nuestros términos de privacidad y cuidado de datos.
