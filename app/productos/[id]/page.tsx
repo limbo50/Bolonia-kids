@@ -6,22 +6,73 @@ export default function DetalleProducto() {
   const params = useParams();
   const id = params.id;
 
-  // Lista completa para que coincida con la Home
+  // Lista completa actualizada con los nuevos productos de la Home
   const productos = [
-    { id: "cocinita", n: "COCINITA CLÁSICA", p: "AR$ 150.000", img: "/producto-cocina.jpg", desc: "Nuestra pieza estrella. Una cocinita artesanal fabricada íntegramente en madera de pino de primera calidad. Incluye detalles reales como perillas giratorias, bacha de acero y estantes para organizar todos los accesorios. Pintada con tintas al agua no tóxicas." },
-    { id: "cafeteria", n: "SET CAFETERÍA", p: "AR$ 130.000", img: "/producto-set-cafeteria.jpg", desc: "El set ideal para los pequeños baristas. Incluye la máquina de café de madera, dos tazas, platitos y granos de café decorativos. Estimula la motricidad fina y el juego simbólico." },
-    { id: "pizzeria", n: "SET PIZZERÍA", p: "AR$ 120.000", img: "/producto-set-pizzeria.jpg", desc: "¡Maestro pizzero en acción! Este set incluye la pala de madera, una pizza dividida en porciones con abrojo y diferentes ingredientes para combinar. Todo fabricado en madera suave al tacto." },
-    { id: "patisserie", n: "SET PATISSERIE", p: "AR$ 140.000", img: "/producto-set-patisserie.jpg", desc: "Para las tardes de té más elegantes. Incluye una selección de pasteles, tortas y macarons de madera pintados a mano. Una delicia visual para jugar y decorar." }
+    { 
+      id: "cocinita", 
+      n: "COCINITA CLÁSICA", 
+      p: "AR$ 150.000", 
+      img: "/producto-cocina.jpg", 
+      desc: "Nuestra pieza estrella. Una cocinita artesanal fabricada íntegramente en madera de pino de primera calidad. Incluye detalles reales como perillas giratorias, bacha de acero y estantes para organizar todos los accesorios. Pintada con tintas al agua no tóxicas." 
+    },
+    { 
+      id: "cafeteria", 
+      n: "SET CAFETERÍA", 
+      p: "AR$ 130.000", 
+      img: "/producto-set-cafeteria.jpg", 
+      desc: "El set ideal para los pequeños baristas. Incluye la máquina de café de madera, dos tazas, platitos y granos de café decorativos. Estimula la motricidad fina y el juego simbólico." 
+    },
+    { 
+      id: "pizzeria", 
+      n: "SET PIZZERÍA", 
+      p: "AR$ 120.000", 
+      img: "/producto-set-pizzeria.jpg", 
+      desc: "¡Maestro pizzero en acción! Este set incluye la pala de madera, una pizza dividida en porciones con abrojo y diferentes ingredientes para combinar. Todo fabricado en madera suave al tacto." 
+    },
+    { 
+      id: "patisserie", 
+      n: "SET PATISSERIE", 
+      p: "AR$ 140.000", 
+      img: "/producto-set-patisserie.jpg", 
+      desc: "Para las tardes de té más elegantes. Incluye una selección de pasteles, tortas y macarons de madera pintados a mano. Una delicia visual para jugar y decorar." 
+    },
+    { 
+      id: "bloques", 
+      n: "BLOQUES NÓRDICOS", 
+      p: "AR$ 65.000", 
+      img: "/producto-bloques.jpg", 
+      desc: "Un set de construcción esencial con estética nórdica. Bloques de diferentes formas y tamaños en madera natural y tonos pasteles, ideales para desarrollar la lógica espacial y la creatividad desde temprana edad." 
+    },
+    { 
+      id: "rompecabezas", 
+      n: "PUZZLE ANIMALES", 
+      p: "AR$ 38.000", 
+      img: "/producto-puzzle.jpg", 
+      desc: "Rompecabezas de encastre diseñado para manos pequeñas. Cada pieza representa un animal del bosque con bordes redondeados y un acabado suave, perfecto para aprender formas y coordinación." 
+    },
+    { 
+      id: "set-limpieza", 
+      n: "SET LIMPIEZA", 
+      p: "AR$ 95.000", 
+      img: "/producto-limpieza.jpg", 
+      desc: "Inspirado en la pedagogía Montessori, este set permite a los niños participar de las tareas del hogar de forma lúdica. Incluye escoba, mopa y recogedor, todo a su medida y fabricado con materiales naturales." 
+    },
+    { 
+      id: "tostadora", 
+      n: "TOSTADORA DE MADERA", 
+      p: "AR$ 45.000", 
+      img: "/producto-tostadora.jpg", 
+      desc: "El complemento perfecto para los desayunos imaginarios. Esta tostadora cuenta con una palanca funcional para 'saltar' las tostadas e incluye rodajas de madera y un cuchillo de juguete." 
+    }
   ];
 
   const producto = productos.find(p => p.id === id);
 
-  // Si el usuario entra a un ID que no existe, le damos un botón para volver
   if (!producto) {
     return (
       <div className="min-h-screen bg-[#F9F4F0] flex items-center justify-center p-8">
         <div className="text-center">
-          <h2 className="text-2xl mb-4">Ups! No encontramos ese producto.</h2>
+          <h2 className="text-2xl mb-4 font-serif">Ups! No encontramos ese producto.</h2>
           <Link href="/" className="text-[#C17967] font-bold underline">Volver al inicio</Link>
         </div>
       </div>
