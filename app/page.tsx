@@ -33,25 +33,21 @@ export default function Home() {
     return () => window.removeEventListener('scroll', manejarScroll);
   }, []);
 
-  // AGREGAR AL CARRITO
   const agregarAlCarrito = (producto: any) => {
     setItemsCarrito(prev => [...prev, producto]);
     setCarritoAbierto(true);
   };
 
-  // QUITAR DEL CARRITO
   const quitarDelCarrito = (index: number) => {
     setItemsCarrito(prev => prev.filter((_, i) => i !== index));
   };
 
   // FUNCIÓN CORAZÓN: AGREGA A FAVORITOS Y AL CARRITO
   const manejarClickCorazon = (producto: any) => {
-    // Lógica de favoritos
     if (favoritos.includes(producto.id)) {
       setFavoritos(favoritos.filter(favId => favId !== producto.id));
     } else {
       setFavoritos([...favoritos, producto.id]);
-      // Si le da amor, lo mandamos al carrito de una ;)
       agregarAlCarrito(producto);
     }
   };
@@ -218,10 +214,7 @@ export default function Home() {
                     <span className="text-[9px] font-bold text-[#C17967] tracking-widest mb-1 uppercase">¡Recién Llegado!</span>
                     <h3 className="text-sm font-bold mb-1">{item.n}</h3>
                     <p className="text-sm text-gray-500 font-bold mb-4">{item.p}</p>
-                    <button 
-                      onClick={() => agregarAlCarrito(item)}
-                      className="text-[10px] font-bold underline decoration-[#C17967] decoration-2 underline-offset-4 uppercase active:scale-95 inline-block text-left"
-                    >
+                    <button onClick={() => agregarAlCarrito(item)} className="text-[10px] font-bold underline decoration-[#C17967] decoration-2 underline-offset-4 uppercase active:scale-95 text-left">
                       Sumar al carrito
                     </button>
                   </div>
@@ -280,7 +273,7 @@ export default function Home() {
                 <p className="text-[13px] text-[#C17967] font-bold mb-4">{item.p}</p>
                 <button 
                   onClick={() => agregarAlCarrito(item)}
-                  className="text-[9px] font-bold uppercase tracking-widest text-gray-400 hover:text-black hover:border-black transition-all border border-gray-200 px-4 py-2 rounded-full active:scale-95"
+                  className="text-[9px] font-bold uppercase tracking-widest text-gray-400 hover:text-black transition-all border border-gray-200 px-4 py-2 rounded-full active:scale-95"
                 >
                   Agregar
                 </button>
@@ -289,18 +282,69 @@ export default function Home() {
           </div>
         </section>
 
-        {/* PERSONALIZACIÓN */}
+        {/* SECCIÓN INTERMEDIA: A MEDIDA */}
         <section className="py-12 px-6 bg-white">
           <div className="max-w-[1100px] mx-auto">
             <div className="bg-[#F9F4F0] rounded-[40px] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-10 border border-[#E5DED5] transition-all hover:shadow-inner">
               <div className="text-center md:text-left md:max-w-[500px]">
                 <h2 className="text-[12px] tracking-[5px] font-bold uppercase mb-4 text-[#C17967]">Personalización</h2>
                 <h3 className="text-3xl md:text-4xl font-normal mb-6 leading-tight uppercase tracking-tighter">¿Tenés una idea especial en mente?</h3>
-                <p className="text-gray-600 italic text-lg leading-relaxed">"Hacemos realidad el mueble o juguete que soñaste."</p>
+                <p className="text-gray-600 italic text-lg leading-relaxed">
+                  "Desde medidas específicas hasta diseños totalmente nuevos, hacemos realidad el mueble o juguete que soñaste."
+                </p>
               </div>
               <Link href="/a-medida" className="bg-[#333] text-white px-10 py-5 rounded-full font-bold text-[11px] tracking-[3px] uppercase hover:bg-[#C17967] transition-all shadow-xl hover:scale-105 active:scale-95 no-underline">
                 Solicitar Presupuesto
               </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* CÓMO TRABAJAMOS */}
+        <section className="py-20 px-6 bg-[#FDFCFB] border-t border-[#E5DED5]">
+          <div className="max-w-[1100px] mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-normal mb-4 uppercase tracking-tighter text-[#333]">Cómo trabajamos</h2>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-16">
+              {[
+                { n: "1", t: "Nos contás lo que necesitás" },
+                { n: "2", t: "Definimos medidas, material y herrajes" },
+                { n: "3", t: "Te enviamos presupuesto sin costo" },
+                { n: "4", t: "Fabricamos y coordinamos la entrega" }
+              ].map((paso) => (
+                <div key={paso.n} className="flex flex-col items-center group">
+                  <div className="w-12 h-12 bg-[#C17967] text-white rounded-full flex items-center justify-center font-bold mb-6 shadow-lg group-hover:scale-110 transition-transform">{paso.n}</div>
+                  <p className="text-[13px] font-bold uppercase tracking-widest leading-relaxed px-4">{paso.t}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* NOSOTROS */}
+        <section id="nosotros" className="py-24 px-6 bg-[#E5DED5]/20 border-t border-[#E5DED5]">
+          <div className="max-w-[800px] mx-auto text-center">
+            <h2 className="text-[12px] tracking-[6px] font-bold uppercase mb-8 text-[#C17967]">Nuestra Esencia</h2>
+            <p className="text-lg md:text-xl leading-relaxed text-gray-700 italic font-light">
+              "En nuestro taller, cada juguete nace de la convicción de que el juego es el lenguaje más puro de la infancia. 
+              Diseñamos piezas duraderas, libres de plásticos y llenas de imaginación."
+            </p>
+          </div>
+        </section>
+
+        {/* PREGUNTAS FRECUENTES */}
+        <section id="preguntas" className="py-20 px-6 bg-white border-t border-[#E5DED5]">
+          <div className="max-w-[800px] mx-auto">
+            <h2 className="text-3xl md:text-4xl font-normal mb-12 uppercase tracking-tighter text-center">Preguntas frecuentes</h2>
+            <div className="space-y-10">
+              {[
+                { q: "¿Qué materiales utilizan?", a: "Trabajamos con melamina MDF de alta calidad, enchapados y laqueados no tóxicos." },
+                { q: "¿Las cotizaciones tienen costo?", a: "No, son totalmente gratuitas. Coordinamos con vos el presupuesto ideal." }
+              ].map((faq, index) => (
+                <div key={index} className="hover:pl-2 transition-all duration-300 border-l-0 hover:border-l-2 hover:border-[#C17967]">
+                  <h4 className="text-[11px] font-bold uppercase tracking-[3px] text-[#C17967] mb-3">{faq.q}</h4>
+                  <p className="text-gray-600 text-sm italic">"{faq.a}"</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
