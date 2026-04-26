@@ -42,7 +42,7 @@ export default function Home() {
     setItemsCarrito(prev => prev.filter((_, i) => i !== index));
   };
 
-  // FUNCIÓN CORAZÓN: AGREGA A FAVORITOS Y AL CARRITO
+  // FUNCIÓN CORAZÓN: FAVORITOS + CARRITO
   const manejarClickCorazon = (producto: any) => {
     if (favoritos.includes(producto.id)) {
       setFavoritos(favoritos.filter(favId => favId !== producto.id));
@@ -325,24 +325,26 @@ export default function Home() {
           <div className="max-w-[800px] mx-auto text-center">
             <h2 className="text-[12px] tracking-[6px] font-bold uppercase mb-8 text-[#C17967]">Nuestra Esencia</h2>
             <p className="text-lg md:text-xl leading-relaxed text-gray-700 italic font-light">
-              "En nuestro taller, cada juguete nace de la convicción de que el juego es el lenguaje más puro de la infancia. 
-              Diseñamos piezas duraderas, libres de plásticos y llenas de imaginación."
+              "En nuestro taller de Pilar, cada juguete nace de la convicción de que el juego es el lenguaje más puro de la infancia. 
+              Diseñamos piezas duraderas, libres de plásticos y llenas de imaginación, pensadas para pasar de generación en generación."
             </p>
           </div>
         </section>
 
-        {/* PREGUNTAS FRECUENTES */}
+        {/* PREGUNTAS FRECUENTES (RESTABLECIDO) */}
         <section id="preguntas" className="py-20 px-6 bg-white border-t border-[#E5DED5]">
           <div className="max-w-[800px] mx-auto">
             <h2 className="text-3xl md:text-4xl font-normal mb-12 uppercase tracking-tighter text-center">Preguntas frecuentes</h2>
             <div className="space-y-10">
               {[
-                { q: "¿Qué materiales utilizan?", a: "Trabajamos con melamina MDF de alta calidad, enchapados y laqueados no tóxicos." },
-                { q: "¿Las cotizaciones tienen costo?", a: "No, son totalmente gratuitas. Coordinamos con vos el presupuesto ideal." }
+                { q: "¿Hacen solo muebles para niños?", a: "Sí. Nos especializamos en cocinas y muebles infantiles y juveniles, siempre con medidas y terminaciones acordes." },
+                { q: "¿Qué materiales utilizan?", a: "Trabajamos con melamina MDF de calidad, enchapados y laqueados, con herrajes adecuados al uso diario." },
+                { q: "¿Las cotizaciones tienen costo?", a: "No. Son sin costo. Coordinamos visita para medir y armar el presupuesto con vos." },
+                { q: "¿Cómo pido un presupuesto?", a: "Por WhatsApp, email o el formulario de 'A medida'. Te asesoramos en cada paso." }
               ].map((faq, index) => (
                 <div key={index} className="hover:pl-2 transition-all duration-300 border-l-0 hover:border-l-2 hover:border-[#C17967]">
                   <h4 className="text-[11px] font-bold uppercase tracking-[3px] text-[#C17967] mb-3">{faq.q}</h4>
-                  <p className="text-gray-600 text-sm italic">"{faq.a}"</p>
+                  <p className="text-gray-600 text-sm italic leading-relaxed">"{faq.a}"</p>
                 </div>
               ))}
             </div>
